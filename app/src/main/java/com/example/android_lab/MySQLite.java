@@ -9,17 +9,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MySQLite extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     public MySQLite(Context context){
-        super(context, "anibalsDB", null, DATABASE_VERSION);
+        super(context, "animalsDB", null, DATABASE_VERSION);
     }
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase database) {
         String DATABASE_CREATE = "create table animals " +
                 "(_id integer primary key autoincrement," +
                 "gatunek text not null," +
                 "kolor text not null," +
                 "wielkosc real not null," +
                 "opis text not null);";
-        db.execSQL(DATABASE_CREATE);
+        database.execSQL(DATABASE_CREATE);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class MySQLite extends SQLiteOpenHelper {
             cursor.moveToFirst();
         Animal zwierz = new Animal(cursor.getString(1), cursor.getString(2),
                 cursor.getFloat(3), cursor.getString(4));
-        zwierz.set_id(Integer.parseInt(cursor.getString(0)));
+        zwierz.setId(Integer.parseInt(cursor.getString(0)));
 
         return zwierz;
     }

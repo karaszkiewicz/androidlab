@@ -30,7 +30,7 @@ public class Animal implements Serializable {
     public float getWielkosc(){return wielkosc;}
     public int getId() { return _id; }
 
-    public void set_id(int _id) {
+    public void setId(int _id) {
         this._id = _id;
     }
 }
